@@ -138,3 +138,5 @@
       - time: 0.3
         offset: 0, 0
   - type: CEDarkSoulSpeechAccent
+  - type: Blindable
+  - type: Hunger

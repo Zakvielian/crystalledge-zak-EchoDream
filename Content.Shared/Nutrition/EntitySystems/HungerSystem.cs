@@ -273,4 +273,25 @@ public sealed partial class HungerSystem : EntitySystem
             DoContinuousHungerEffects(uid, hunger);
         }
     }
+
+
+    /// Echo Dream
+    public void ChangeBaseDecayRate(EntityUid uid, float newValue, HungerComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        var currentHunger = GetHunger(component);
+
+        component.BaseDecayRate = newValue;
+
+        if (component.HungerThresholdDecayModifiers.TryGetValue(component.CurrentThreshold, out var modifier))
+            component.ActualDecayRate = component.BaseDecayRate * modifier;
+        else
+            component.ActualDecayRate = component.BaseDecayRate;
+
+        DirtyField(uid, component, nameof(HungerComponent.ActualDecayRate));
+
+        SetAuthoritativeHungerValue((uid, component), currentHunger);
+    }
 }

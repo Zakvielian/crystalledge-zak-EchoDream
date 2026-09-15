@@ -1,0 +1,181 @@
+# Телосложение
+
+- type: traitCategory
+  id: BodyType
+  name: trait-category-bodytype
+  maxTraitPoints: 1
+
+- type: trait
+  id: Overweight
+  category: BodyType
+  name: trait-overweight-name
+  description: trait-overweight-desc
+  cost: 1
+  components:
+  - type: OverweightTrait
+
+- type: trait
+  id: Thinness
+  category: BodyType
+  name: trait-thinness-name
+  description: trait-thinness-desc
+  cost: 1
+  components:
+  - type: ThinnessTrait
+
+# Религия
+
+- type: traitCategory
+  id: HolyPatrons
+  name: trait-category-holy-patron
+  maxTraitPoints: 1
+
+- type: trait
+  id: SaintGus
+  category: HolyPatrons
+  name: trait-saint-gus-name
+  description: trait-saint-gus-desc
+  cost: 1
+  components:
+  - type: ReligionTrait
+    text: trait-saint-gus-examine
+
+- type: trait
+  id: SaintSirAbel
+  category: HolyPatrons
+  name: trait-saint-sir-abel-name
+  description: trait-saint-sir-abel-desc
+  cost: 1
+  components:
+  - type: ReligionTrait
+    text: trait-saint-sir-abel-examine
+
+- type: trait
+  id: SaintLadyAdele
+  category: HolyPatrons
+  name: trait-saint-lady-adele-name
+  description: trait-saint-lady-adele-desc
+  cost: 1
+  components:
+  - type: ReligionTrait
+    text: trait-saint-lady-adele-examine
+
+- type: trait
+  id: HolySpiritNoturu
+  category: HolyPatrons
+  name: trait-holy-spirit-noturu-name
+  description: trait-holy-spirit-noturu-desc
+  cost: 1
+  components:
+  - type: ReligionTrait
+    text: trait-holy-spirit-noturu-examine
+
+
+# Отдолженые
+
+- type: traitCategory
+  id: HealthTraits
+  name: trait-category-health
+  maxTraitPoints: 2
+
+- type: traitCategory
+  id: VoiceAccents
+  name: trait-category-accents
+  maxTraitPoints: 1
+
+- type: trait
+  id: Muted
+  name: trait-muted-name
+  description: trait-muted-desc
+  category: HealthTraits
+  cost: 1
+  blacklist:
+    components:
+      - BorgChassis
+  components:
+    - type: Muted
+
+- type: trait
+  id: Blindness
+  name: trait-blindness-name
+  description: trait-blindness-desc
+  traitGear: WhiteCane
+  category: HealthTraits
+  cost: 1
+  whitelist:
+    components:
+      - Blindable
+  components:
+    - type: PermanentBlindness
+
+- type: trait
+  id: PainNumbness
+  name: trait-painnumbness-name
+  description: trait-painnumbness-desc
+  category: HealthTraits
+  cost: 1
+  specials:
+  - !type:ApplyStatusEffectSpecial
+    statusEffects:
+    - TraitStatusEffectPainNumbness
+
+- type: trait
+  id: Pacifist
+  name: trait-pacifist-name
+  description: trait-pacifist-desc
+  category: HealthTraits
+  cost: 1
+  components:
+  - type: Pacified
+  # - type: ManaComponent
+  #   maxManaBonus: 10
+
+- type: trait
+  id: Snoring
+  name: trait-snoring-name
+  description: trait-snoring-desc
+  category: HealthTraits
+  cost: 1
+  components:
+  - type: Snoring
+
+- type: trait
+  id: LightweightDrunk
+  name: trait-lightweight-name
+  description: trait-lightweight-desc
+  category: HealthTraits
+  cost: 1
+  components:
+  - type: LightweightDrunk
+    boozeStrengthMultiplier: 2
+
+- type: trait
+  id: BavarianAccent
+  name: trait-bavarian-name
+  description: trait-bavarian-desc
+  category: VoiceAccents
+  cost: 1
+  components:
+  - type: GermanAccent
+
+- type: trait
+  id: Stuttering
+  name: trait-stuttering-name
+  description: trait-stuttering-desc
+  category: VoiceAccents
+  cost: 1
+  components:
+  - type: StutteringAccent
+    matchRandomProb: 0.1
+    fourRandomProb: 0
+    threeRandomProb: 0
+    cutRandomProb: 0
+
+- type: trait
+  id: FrontalLisp
+  name: trait-frontal-lisp-name
+  description: trait-frontal-lisp-desc
+  category: VoiceAccents
+  cost: 1
+  components:
+  - type: FrontalLisp
